@@ -1,0 +1,29 @@
+<div class="button-with-icon">
+  <span class="material-symbols-outlined">
+  add
+  </span>
+  <button (click)="openAddTaskModal()">Add Task</button>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="addTaskModal">
+  <div class="modal-content">
+        <span class="material-symbols-outlined close" (click)="closeModal()">
+            close
+        </span>
+
+      <form [formGroup]="form" (submit)="saveTask()" (keyup.enter)="submitBtn.click()">
+        <input type="text" formControlName="taskName" placeholder="Task Name">
+        <div class="error" *ngIf="fc['taskName'].invalid && (fc['taskName'].dirty || fc['taskName'].touched) && fc['taskName'].errors?.['required']">Task name is required</div>
+
+        <textarea formControlName="description" placeholder="Description"></textarea>
+        <div class="error" *ngIf="fc['description'].invalid && (fc['description'].dirty || fc['description'].touched) && fc['description'].errors?.['required']">Description is required</div>
+
+        <div class="btn">
+          <button type="submit" #submitBtn [disabled]="form.invalid">Save</button>
+        </div>
+      </form>
+
+  </div>
+</div>
+<!--  /Modal -->

@@ -1,0 +1,17 @@
+
+.navbar {
+    background-color: rgba(241, 9, 175, 0.653);
+    display: flex;
+    padding: 10px 0;
+
+
+    .left-section {
+        display: inline-flex;
+
+        .menu-icon, .home-icon {
+            margin-right: 10px;
+        }
+    }
+
+}
+

@@ -1,0 +1,5 @@
+<div *ngFor="let task of tasks$ | async">
+    <!-- Display tasks using the 'tasks$' observable -->
+    <h1> {{ task.taskName }} </h1>
+    <div> {{task.description}}</div>
+  </div>

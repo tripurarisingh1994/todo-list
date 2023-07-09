@@ -1,0 +1,28 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .body-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow: hidden;
+
+
+    main {
+      background-color: #fffbec;
+      min-height: 380px;
+      margin-left:305px;
+      position: relative;
+      overflow: hidden auto;
+      transition: margin-left .25s cubic-bezier(.4,0,.2,1);
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+    }
+  }
+}
+
+

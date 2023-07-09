@@ -1,0 +1,18 @@
+.sidebar {
+  width: 305px;
+  height: calc(100vh - 44px);
+  //height: calc(100vh - var(--top-bar-height));
+  padding-top: var(--left-menu-padding-top);
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  transition: left .25s cubic-bezier(.4, 0, .2, 1);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #e7e6e6;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
