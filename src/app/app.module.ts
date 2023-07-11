@@ -9,6 +9,9 @@ import {SideBarComponent} from "./side-bar/side-bar.component";
 import {StoreModule} from "@ngrx/store";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { taskReducer } from './store/reducers/task.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffects } from './store/effects/task.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { taskReducer } from './store/reducers/task.reducer';
       trace: true, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
+    EffectsModule.forRoot([TaskEffects]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
