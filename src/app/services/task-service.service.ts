@@ -12,7 +12,7 @@ export class TaskService {
 
   createTask(taskName: string, description: string): Observable<any> {
     const task = { taskName, description };
-    return this.http.post(`${environment.API_BASE_URL}/`, task);
+    return this.http.post(`${environment.API_BASE_URL}/task/save`, task);
   }
 
   // Add other CRUD operations as needed
