@@ -1,10 +1,10 @@
 import express, {Request, Response, Router} from 'express';
 const route: Router = express.Router();
 import pool from '../db';
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 
 
-route.post('/save', async (req: Request, res: Response) => {
+route.post('/', async (req: Request, res: Response) => {
     try {
         const {taskName, description, user_id} = req.body;
 
@@ -30,5 +30,23 @@ route.post('/save', async (req: Request, res: Response) => {
         pool.end();
       }
 })
+
+route.get('/',async (req: Request, res: Response) => {
+  
+  try {
+   const [rows] = await pool.execute('Select * from task');
+
+   const tasks: RowDataPacket[] = rows as RowDataPacket[];
+
+   res.status(200).json({success: true, data: tasks});
+   
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+  finally {
+    pool.end();
+  }
+});
 
 export default route;
