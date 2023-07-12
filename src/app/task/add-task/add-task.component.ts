@@ -50,10 +50,7 @@ export class AddTaskComponent implements OnInit {
       return
     }
 
-   console.log({...this.form.value});
-
    this.store.dispatch(createTask({ ...this.form.value }));
-   
 
     this.form.reset()
 
