@@ -5,6 +5,7 @@ import { TaskState } from 'src/app/store/app.state';
 import { Observable, of } from 'rxjs';
 import { Task } from 'src/app/store/reducers/task.reducer';
 import { selectAllTasks } from 'src/app/store/selectors/task.selector';
+import { getTasks } from 'src/app/store/actions/task.action';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(getTasks());
     this.tasks$ = this.store.pipe(select(selectAllTasks));
   }
 
