@@ -1,10 +1,12 @@
-import {Connection, createConnection} from 'mysql2';
+import { createPool, Pool } from 'mysql2/promise';
 
-const con:Connection = createConnection({
-  host:"localhost",
-  user:"root",
-  password:"12345678",
-  database:"school"
+const pool: Pool = createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '12345678',
+  database: 'todo_list',
+  connectionLimit: 10, // Adjust the connection limit as per your requirements
 });
 
-module.exports = con;
+export default pool;
+
