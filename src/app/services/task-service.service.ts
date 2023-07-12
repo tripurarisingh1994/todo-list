@@ -15,5 +15,9 @@ export class TaskService {
     return this.http.post(`${environment.API_BASE_URL}/task`, task);
   }
 
+  getTask(): Observable<any> {
+    return this.http.get(`${environment.API_BASE_URL}/task`)
+  }
+
   // Add other CRUD operations as needed
 }
