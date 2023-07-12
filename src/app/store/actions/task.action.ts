@@ -1,19 +1,5 @@
-// import {createAction, props} from "@ngrx/store";
-// import {TaskState} from "../app.state";
-
-// export const TASK_CREATE = '[Add Task Component] Create';
-// export const TASK_UPDATE = '[Add Task Component] Update';
-// export const TASK_DELETE = '[Add Task Component] Delete';
-
-// export const taskCreate = createAction(
-//   TASK_CREATE,
-//   props<TaskState>()
-//   );
-// export const taskUpdate = createAction(TASK_UPDATE)
-// export const taskDelete = createAction(TASK_DELETE)
-
-
 import { createAction, props } from '@ngrx/store';
+
 
 export const createTask = createAction(
   '[Tasks] Create Task',
@@ -21,9 +7,27 @@ export const createTask = createAction(
 );
 
 export const createTaskSuccess = createAction(
-  '[Tasks] Create Task Success'
+  '[Tasks] Create Task Success',
+  props<any>()
 );
 export const createTaskFail = createAction(
   '[Tasks] Create Task Fail',
    props<{ error: string }>()
 );
+
+// Get 
+
+export const getTasks = createAction(
+  '[Tasks] Get Task'
+);
+
+export const getTasksSuccess = createAction(
+  '[Tasks] Get Task Success',
+  props<any>()
+);
+
+export const getTasksFailure = createAction(
+  '[Task] Get Tasks Failure',
+   props<{ error: any }>()
+);
+
